@@ -6,6 +6,7 @@ import {Role} from "../helpers/shared";
 import {AuthGuard} from "../helpers/auth.guard";
 import {LoginComponent} from "../components/login/login.component";
 import {RegistrationComponent} from "../components/registration/registration.component";
+import {CustomerComponent} from "../components/customer/customer.component";
 
 const routes: Routes = [
   {
@@ -17,7 +18,17 @@ const routes: Routes = [
     path:'stat',
     component: StatisticComponent,
     canActivate: [AuthGuard],
-    data: { roles: [Role.Admin] }
+ //   data: { roles: [Role.Admin] }
+  },
+  {
+    path:'',
+    component: StatisticComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path:'customer/:id',
+    component: CustomerComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',

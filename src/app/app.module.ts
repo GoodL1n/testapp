@@ -18,6 +18,8 @@ import {ErrorInterceptor} from "./helpers/error.interceptor";
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
 import {JwtInterceptor} from "./helpers/jwt.interceptor";
 import { RegistrationComponent } from './components/registration/registration.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { CustomerButtonComponent } from './components/customer-button/customer-button.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { RegistrationComponent } from './components/registration/registration.co
     ToolbarComponent,
     NotfoundpageComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    CustomerComponent,
+    CustomerButtonComponent
   ],
   imports: [
     BrowserModule,
