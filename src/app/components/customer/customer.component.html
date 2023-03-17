@@ -1,1 +1,11 @@
-<p>customer works!</p>
+<form [formGroup]="firstFormGroup">
+  <ng-template matStepLabel>Изменение информации о покупателе</ng-template>
+  <div class = "column">
+    <mat-form-field>
+      <input matInput placeholder="Имя" formControlName = "firstCtrl" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Фамилия" formControlName = "lastCtrl" required>
+    </mat-form-field>
+  </div>
+</form>

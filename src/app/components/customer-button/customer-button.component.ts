@@ -11,7 +11,7 @@ export class CustomerButtonComponent {
 
   constructor(private customerService: CustomerServiceService) {
   }
-  @Input() customer?: Customer;
+  @Input() customer: Customer | any;
 
   onClick() {
     console.log(this.customer);
