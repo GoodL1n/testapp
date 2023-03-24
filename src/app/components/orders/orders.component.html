@@ -1,1 +1,28 @@
-<p>orders works!</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 col-12">
+      <h2>Bar Chart</h2>
+
+      <app-bar [chartData]="barChartConfig.chartData" [chartLabels]="barChartConfig.chartLabels"
+                 [chartOptions]="barChartConfig.options" [chartLegends]="barChartConfig.legends"></app-bar>
+
+    </div>
+    <div class="col-md-6  col-12">
+      <h2>Line Chart</h2>
+      <app-line [chartData]="lineChartConfig.chartData" [chartLabels]="lineChartConfig.chartLabels"
+                  [chartOptions]="lineChartConfig.options" [chartLegends]="lineChartConfig.legends"
+                  [chartPlugins]="lineChartConfig.plugins"></app-line>
+
+    </div>
+
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-6  col-12">
+
+      <h2>Pie Chart</h2>
+      <app-pie [chartData]="pieChartConfig.chartData" [chartLabels]="pieChartConfig.chartLabels"
+                 [chartOptions]="pieChartConfig.options" [chartLegends]="pieChartConfig.legends"></app-pie>
+    </div>
+
+  </div>
+</div>

@@ -28,6 +28,7 @@ export class AuthenticationService {
       })
             .pipe(map(user => {
                 console.log(user)
+                localStorage.setItem('user', JSON.stringify(user))
                 this.userSubject.next(user);
             //    this.startRefreshTokenTimer();
                 return user;

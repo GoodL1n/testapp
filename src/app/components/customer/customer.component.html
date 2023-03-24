@@ -1,11 +1,32 @@
-<form [formGroup]="firstFormGroup">
-  <ng-template matStepLabel>Изменение информации о покупателе</ng-template>
-  <div class = "column">
-    <mat-form-field>
-      <input matInput placeholder="Имя" formControlName = "firstCtrl" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Фамилия" formControlName = "lastCtrl" required>
-    </mat-form-field>
-  </div>
-</form>
+<mat-card>
+  <mat-card-content>
+    <div class="header">
+      <h2>Форма изменения данных</h2>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="firstFormGroup">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Имя</mat-label>
+        <input formControlName="firstCtrl" matInput placeholder="Имя" required/>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Фамилия</mat-label>
+        <input formControlName="lastCtrl" matInput placeholder="Фамилия" required/>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>e-mail</mat-label>
+        <input formControlName="emailCtrl" matInput placeholder="Email" required/>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Дата</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" matInput placeholder="Выберите дату" required/>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker disabled = "false"></mat-datepicker>
+      </mat-form-field>
+
+      <button mat-flat-button color="primary" style="border-radius:10px; width : 10em;">Сохранить</button>
+    </form>
+  </mat-card-content>
+</mat-card>

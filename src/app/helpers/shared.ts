@@ -19,7 +19,7 @@ export interface Customer {
   first_name : string;
   last_name : string;
   email : string;
-  address : string;
+  address_id : string;
   activebool : string;
   create_date : Date;
   active: string;

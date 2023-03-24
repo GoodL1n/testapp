@@ -20,6 +20,10 @@ import {JwtInterceptor} from "./helpers/jwt.interceptor";
 import { RegistrationComponent } from './components/registration/registration.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { CustomerButtonComponent } from './components/customer-button/customer-button.component';
+import {NgChartsModule} from "ng2-charts";
+import { BarComponent } from './components/bar/bar.component';
+import { LineComponent } from './components/line/line.component';
+import { PieComponent } from './components/pie/pie.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,10 @@ import { CustomerButtonComponent } from './components/customer-button/customer-b
     LoginComponent,
     RegistrationComponent,
     CustomerComponent,
-    CustomerButtonComponent
+    CustomerButtonComponent,
+    BarComponent,
+    LineComponent,
+    PieComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +50,7 @@ import { CustomerButtonComponent } from './components/customer-button/customer-b
     FormsModule,
     HttpClientModule,
     MatNativeDateModule,
+    NgChartsModule
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },

@@ -19,6 +19,18 @@ export class HttpServiceService {
       }));
   }
 
+  updateCustomer(customer: Customer){
+    return this.http.put<any>(environment.apiUrl + 'customers', JSON.stringify(customer),
+      {headers: {'Content-Type' : 'application/json'}})
+      .pipe(map(user => {
+        if(user['message']){
+          return false;
+        } else {
+          return true;
+        }
+      }));
+  }
+
   getAddressList(){
     return this.http.get<Address[]>(environment.apiUrl + 'address')
       .pipe(map(address => {

@@ -19,7 +19,7 @@ export class StatisticComponent implements OnInit {
   countries: Country[] = [];
 
   customers: any[] = [];
-  displayColumns: string[] = ['customer_id', 'first_name', 'last_name', 'address', 'email', 'activebool', 'button']
+  displayColumns: string[] = ['customer_id', 'first_name', 'last_name', 'address_id', 'email', 'activebool', 'button']
   dataSource: MatTableDataSource<Customer> = new MatTableDataSource<Customer>();
 
   constructor(private httpService: HttpServiceService,
