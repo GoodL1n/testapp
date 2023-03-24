@@ -25,6 +25,11 @@ export interface Customer {
   active: string;
 }
 
+export interface CountCities{
+  count: string;
+  country: string;
+}
+
 export interface Address{
 
 }

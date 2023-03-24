@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpServiceService} from "../../services/http-service.service";
+import {CountCities} from "../../helpers/shared";
 
 @Component({
   selector: 'app-orders',
@@ -11,23 +13,40 @@ export class OrdersComponent implements OnInit {
   lineChartConfig: any;
   pieChartConfig: any;
 
-  constructor() {
+  public countCities : CountCities[] = [];
+
+  count: {} | any;
+  nameCountries: {} | any;
+
+  constructor(private http: HttpServiceService) {
 
   }
 
   ngOnInit() {
+    this.http.getCountCities().subscribe(x => {
+      this.countCities = x
+      this.count = this.countCities.map(y => {
+        return y.count;
+      })
+      this.nameCountries = this.countCities.map(y => {
+        return y.country;
+      })
+    })
+  }
+
+  func(){
     this.barChartConfig = {
 
       chartData: [
         {
-          data: [2478, 5267, 734, 784, 433],
-          label: 'Population (millions)',
+          data: this.count,
+          label: ' ',
           backgroundColor: ["#DAF7A6", "#76D7C4", "#F8C471", "#AED6F1", "#F9E79F"],
           hoverBackgroundColor: ["#DAF7A6", "#76D7C4", "#F8C471", "#AED6F1", "#F9E79F"]
         },
 
       ],
-      chartLabels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      chartLabels: this.nameCountries,
       legends: true,
       options: {
         responsive: true,
@@ -36,60 +55,32 @@ export class OrdersComponent implements OnInit {
 
     this.lineChartConfig = {
       chartData: [
-        {data: [85, 72, 78, 75, 77, 75], label: 'Natural Gas (in USD)'},
-        {data: [34, 67, 12, 20, 110, 98], label: 'Coal (in USD)'},
-        {data: [63, 87, 50, 28, 75.5, 83], label: 'Crude Oil (in USD)'}
+        {data: this.count, label: ' '},
       ],
-      chartLabels: ['January', 'February', 'March', 'April', 'May', 'June'],
+      chartLabels: this.nameCountries,
       legends: true,
       options: {
         responsive: true,
-        plugins: {
-          zoom: {
-            // pan: {
-            //   enabled: true,
-            //   mode: 'xy'
-            // },
-            zoom: {
-              wheel: {
-                enabled: true,
-              },
-              pinch: {
-                enabled: true
-              },
-              mode: 'xy',
-              onZoom: function (chart: any) {
-                console.log(`I was zoomed!!!`);
-              },
-            }
-          }
-        }
-
-      },
-      /* handle zoom plugin inside respective chart component
-       based on plugin.zoom flag in options
-       you can pass any other plugins such as dataLabels in the plugins array
-       */
-      plugins: []
-
+      }
     };
 
     this.pieChartConfig = {
 
       chartData: [
         {
-          data: [2478, 5267, 734, 784, 433],
-          label: 'Population (millions)',
+          data: this.count,
+          label: ' ',
           backgroundColor: ["#DAF7A6", "#76D7C4", "#F8C471", "#AED6F1", "#F9E79F"],
           hoverBackgroundColor: ["#DAF7A6", "#76D7C4", "#F8C471", "#AED6F1", "#F9E79F"]
         },
 
       ],
-      chartLabels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      chartLabels: this.nameCountries,
       legends: true,
       options: {
         responsive: true,
       }
     };
   }
+
 }

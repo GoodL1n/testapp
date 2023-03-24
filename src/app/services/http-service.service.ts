@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Address, City, Country, Customer} from "../helpers/shared";
+import {Address, City, CountCities, Country, Customer} from "../helpers/shared";
 import {environment} from "../environment";
 import {map} from "rxjs/operators";
 
@@ -28,6 +28,13 @@ export class HttpServiceService {
         } else {
           return true;
         }
+      }));
+  }
+
+  getCountCities(){
+    return this.http.get<CountCities[]>(environment.apiUrl + 'countcities')
+      .pipe(map(cities =>{
+        return cities;
       }));
   }
 
